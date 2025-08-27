@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Permiso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/styleMain.css">
+</head>
+<body class="bg-light">
+    
+    <div class="container py-5">
+        <div class="card shadow-lg rounded-4">
+            <div class="card-header bg-primary text-white text-center">
+                <h3 class="mb-0">Formulario de Solicitud de Permiso</h3>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="usuario" class="form-label">Nombre o ID del usuario</label>
+                        <input type="text" class="form-control" id="usuario" value="Usuario Logueado" readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="sede" class="form-label">Sede</label>
+                        <select class="form-select" id="sede" required>
+                            <option value="">Seleccione una sede</option>
+                            <option value="pacifico">Sede Pacifico</option>
+                            <option value="capri">Sede Capri</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fecha_salida" class="form-label">Fecha de salida</label>
+                        <input type="date" class="form-control" id="fecha_salida" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fecha_regreso" class="form-label">Fecha de regreso</label>
+                        <input type="date" class="form-control" id="fecha_regreso" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="codigo_computadora" class="form-label">Código de la computadora</label>
+                        <input type="text" class="form-control" id="codigo_computadora" placeholder="Ej: PC-2025-001" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Aceptación de condiciones</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="condiciones" required>
+                            <label class="form-check-label" for="condiciones">
+                                Acepto las siguientes condiciones:
+                            </label>
+                        </div>
+                        <ul class="small mt-2">
+                            <li>Si viajas en transporte público, debes resguardar tu equipo en tu bolso personal, no exponerlo.</li>
+                            <li>Si llevas el equipo, procura ir acompañado.</li>
+                            <li>Si está lloviendo, procura llevar el equipo en un vehículo apropiado para evitar algún daño.</li>
+                            <li>Evitar jugar, descargar o utilizar el equipo para otros motivos que no sean relacionados con el estudio.</li>
+                            <li>El equipo será revisado antes y después de ser entregado. Cualquier alteración o instalación indebida podría resultar en la pérdida de privilegios.</li>
+                            <li>Si retiras una computadora sin haber completado el formulario y la boleta física, podrías ser amonestado.</li>
+                            <li>Este formulario debe llenarse junto con la boleta física, que debe estar firmada por la persona encargada.</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success px-4">Enviar Solicitud</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
