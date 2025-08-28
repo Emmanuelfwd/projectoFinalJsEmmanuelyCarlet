@@ -1,6 +1,27 @@
 {
-  "usuarios": [{ "id": 1, "username": "Pedro", "password": "1234"}],
-
-  "Solicitud":[]
+  "usuarios": [
+    {
+      "id": 1,
+      "username": "Pedro",
+      "password": "1",
+      "userT": "student"
+    },{
+      "id": 2,
+      "username": "Juan",
+      "password": "1",
+      "userT": "student"
+    }
+    
+  ],
+  "Solicitud": [
+    {
+      "id": "4ccf",
+      "usuarioId": 1,
+      "sede": "pacifico",
+      "fechaSalida": "2000-02-12",
+      "fechaRegreso": "2222-12-12",
+      "codigo": "321312",
+      "estado": "pendiente"
+    }
+  ]
 }
-
