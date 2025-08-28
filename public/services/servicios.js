@@ -55,3 +55,5 @@ export async function obtenerUsuarioPorId(id) {
         console.error("Error al obtener usuario por ID:", error);
     }
 }
+
+/* hoña */
