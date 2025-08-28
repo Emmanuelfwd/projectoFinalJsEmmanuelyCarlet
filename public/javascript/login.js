@@ -11,13 +11,13 @@ document.getElementById("form_login").addEventListener("submit", async (e) => {
     const user = usuario.value.trim();
     const pass = clave.value.trim();
 
-    // Obtenemos al usuario con tipo "normal"
+    /* Obtenemos al usuario con tipo "normal" */
     const usuarioEncontrado = await obtenerUsuario(user, pass, "student");
 
     if (usuarioEncontrado) {
         sessionStorage.setItem("usuario_id", usuarioEncontrado.id);
 
-        // Validamos que el tipo sea el correcto
+        /* Validamos que el tipo sea el correcto */
         if (usuarioEncontrado.userT === "student") {
             mensajeError.style.display = "none";
             window.location.href = "../pages/main.html";
