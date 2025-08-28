@@ -1,4 +1,5 @@
 export async function obtenerUsuario(userName, password,userT) {
+export async function obtenerUsuario(userName, password,userT) {
   try {
     const respuesta = await fetch("http://localhost:3001/usuarios");
     const usuarios = await respuesta.json();
