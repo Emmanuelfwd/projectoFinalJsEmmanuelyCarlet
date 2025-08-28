@@ -2,7 +2,7 @@ import { obtenerUsuario, crearSolicitud, obtenerSolicitudes, actualizarSolicitud
 
 /* Seleccionamos el contenedor que envuelve los formularios */
 const contenedorFormularios = document.getElementById("contenedor_formulario");
-
+F
 /* Seleccionamos todos los formularios dentro del contenedor */
 const formularios = contenedorFormularios.getElementsByTagName("form");
 
@@ -31,7 +31,7 @@ async function cargarSolicitudes() {
             const div = document.createElement("div");
             div.className = "border rounded p-2 mb-2";
 
-            /* Creamos elementos sin usar querySelector */
+            /* Creamos elementos */
             const pUsuario = document.createElement("p");
             pUsuario.innerHTML = `<b>Usuario:</b> ${usuarioLogueado.username}`;
             const pSede = document.createElement("p");
@@ -98,7 +98,7 @@ async function cargarSolicitudes() {
 
 /* Iteramos sobre todos los formularios del contenedor */
 for (let form of formularios) {
-    /* Seleccionamos inputs dentro del form sin querySelector */
+    /* Seleccionamos inputs dentro del form */
     const inputUsuario = form.getElementsByTagName("input")[0]; // asumimos que es el primero
 
     /* Asignamos el nombre del usuario logueado */
