@@ -56,4 +56,3 @@ export async function obtenerUsuarioPorId(id) {
     }
 }
 
-/* hoña */
