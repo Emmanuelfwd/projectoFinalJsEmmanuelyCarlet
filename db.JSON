@@ -11,6 +11,12 @@
       "username": "Juan",
       "password": "1",
       "userT": "student"
+    },
+    {
+      "id": "24e1",
+      "username": "Mike",
+      "password": "2",
+      "userT": "student"
     }
   ],
   "Solicitud": [
