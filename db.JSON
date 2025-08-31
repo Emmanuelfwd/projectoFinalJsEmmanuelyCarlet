@@ -7,22 +7,10 @@
       "userT": "admin"
     },
     {
-      "id": "2",
-      "username": "Juan",
-      "password": "1",
-      "userT": "admin"
-    },
-    {
       "id": "3abf",
       "username": "pedrolo",
       "password": "1",
       "userT": "admin"
-    },
-    {
-      "id": "8185",
-      "username": "pepe",
-      "password": "1",
-      "userT": "student"
     },
     {
       "id": "077b",
@@ -52,6 +40,24 @@
       "fechaRegreso": "",
       "codigo": "3333",
       "estado": "concluido"
+    },
+    {
+      "id": "d231",
+      "usuarioId": "077b",
+      "sede": "pacifico",
+      "fechaSalida": "2025-08-31",
+      "fechaRegreso": "2025-08-31",
+      "codigo": "41123421",
+      "estado": "concluido"
+    },
+    {
+      "id": "b6e7",
+      "usuarioId": "077b",
+      "sede": "pacifico",
+      "fechaSalida": "2025-08-31",
+      "fechaRegreso": "",
+      "codigo": "323123",
+      "estado": "pendiente"
     }
   ]
 }

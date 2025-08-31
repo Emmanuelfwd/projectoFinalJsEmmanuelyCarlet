@@ -106,6 +106,8 @@ async function main() {
         const fechaRegresoInput = form.getElementsByTagName("input")[2];
 
         const hoy = new Date().toISOString().slice(0, 10);
+        console.log(hoy);
+        
         fechaSalidaInput.value = hoy;
         fechaSalidaInput.readOnly = true;
         fechaRegresoInput.value = "";

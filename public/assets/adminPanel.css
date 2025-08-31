@@ -1,11 +1,13 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     background-color: #f3f3f3;
     padding: 20px;
 }
 
+/* Contenedor principal */
 .container {
-    background-color: white;
+    background-color: #fff;
     padding: 30px;
     border-radius: 10px;
     max-width: 800px;
@@ -13,11 +15,13 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+/* Título principal */
 h1 {
     text-align: center;
     margin-bottom: 30px;
 }
 
+/* Tabla */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -26,7 +30,7 @@ table {
 
 thead {
     background-color: #333;
-    color: white;
+    color: #fff;
 }
 
 th, td {
@@ -36,41 +40,42 @@ th, td {
 }
 
 tr:hover {
-    background-color: #f1f1f1;
+    background-color: #f9f9f9;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
+/* Inputs y selects */
+input[type="text"], select {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botones generales */
+td button {
+    padding: 8px 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    color: #fff;
+    font-size: 14px;
+    transition: background-color 0.2s ease-in-out;
 }
 
-button:hover {
-    background-color: #555;
-}
-
-input[type="text"], select {
-    padding: 5px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-button.modificar-btn {
+/* Botón Modificar (primer botón dentro de la celda) */
+td button:first-child {
     background-color: #4CAF50;
     margin-right: 5px;
 }
-
-button.eliminar-btn {
-    background-color: #f44336;
-}
-
-button.modificar-btn:hover {
+td button:first-child:hover {
     background-color: #45a049;
 }
 
-button.eliminar-btn:hover {
+/* Botón Eliminar (segundo botón dentro de la celda) */
+td button:last-child {
+    background-color: #f44336;
+}
+td button:last-child:hover {
     background-color: #d32f2f;
 }
