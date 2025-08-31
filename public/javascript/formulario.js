@@ -5,27 +5,20 @@ import {
     actualizarSolicitud,
 } from "../services/servicios.js";
 
-/* Seleccionamos el contenedor que envuelve los formularios */
 const contenedorFormularios = document.getElementById("contenedor_formulario");
-
-/* Seleccionamos todos los formularios dentro del contenedor */
 const formularios = contenedorFormularios.getElementsByTagName("form");
-
-/* Contenedores de solicitudes */
 const pendientesContainer = document.getElementById("solicitudes_pendientes");
 const historialContainer = document.getElementById("solicitudes_historial");
 
 async function main() {
-    /* Usuario logueado */
     const usuarioIdStr = sessionStorage.getItem("usuario_id");
+    const usuarioId = usuarioIdStr;
 
     if (!usuarioIdStr) {
         alert("Acceso denegado. No ha iniciado sesión.");
         window.location.href = "../pages/login.html";
         return;
     }
-
-    const usuarioId = Number(usuarioIdStr); // Convertir a número para el fetch
 
     let usuarioLogueado = null;
 
@@ -49,34 +42,38 @@ async function main() {
         return;
     }
 
-    /* Función para cargar solicitudes */
     async function cargarSolicitudes() {
         const solicitudes = await obtenerSolicitudes();
         const solicitudesUsuario = solicitudes.filter(s => s.usuarioId === usuarioLogueado.id);
 
         pendientesContainer.innerHTML = "";
+        historialContainer.innerHTML = "";
 
         for (let s of solicitudesUsuario) {
-            if (s.estado === "pendiente") {
-                const div = document.createElement("div");
-                div.className = "border rounded p-2 mb-2";
+            const div = document.createElement("div");
+            div.className = "border rounded p-2 mb-2";
 
-                const pUsuario = document.createElement("p");
-                pUsuario.innerHTML = `<b>Usuario:</b> ${usuarioLogueado.username}`;
-                const pSede = document.createElement("p");
-                pSede.innerHTML = `<b>Sede:</b> ${s.sede}`;
-                const pPC = document.createElement("p");
-                pPC.innerHTML = `<b>PC:</b> ${s.codigo}`;
-                const pSalida = document.createElement("p");
-                pSalida.innerHTML = `<b>Fecha de salida:</b> ${s.fechaSalida}`;
-                const pRegreso = document.createElement("p");
-                pRegreso.innerHTML = `<b>Fecha de regreso:</b> ${s.fechaRegreso}`;
+            const pUsuario = document.createElement("p");
+            pUsuario.innerHTML = `<b>Usuario:</b> ${usuarioLogueado.username}`;
+            const pSede = document.createElement("p");
+            pSede.innerHTML = `<b>Sede:</b> ${s.sede}`;
+            const pPC = document.createElement("p");
+            pPC.innerHTML = `<b>PC:</b> ${s.codigo}`;
+            const pSalida = document.createElement("p");
+            pSalida.innerHTML = `<b>Fecha de salida:</b> ${s.fechaSalida}`;
+            const pRegreso = document.createElement("p");
+            pRegreso.innerHTML = `<b>Fecha de regreso:</b> ${s.fechaRegreso}`;
+            const pEstado = document.createElement("p");
+            pEstado.innerHTML = `<b>Estado:</b> ${s.estado}`;
+
+            if (s.estado === "pendiente") {
                 const btnConcluir = document.createElement("button");
                 btnConcluir.className = "btn btn-sm btn-success";
                 btnConcluir.textContent = "Concluir";
 
                 btnConcluir.addEventListener("click", async () => {
-                    await actualizarSolicitud(s.id, { estado: "concluido" });
+                    const fechaActual = new Date().toISOString().slice(0, 10);
+                    await actualizarSolicitud(s.id, { estado: "concluido", fechaRegreso: fechaActual });
                     cargarSolicitudes();
                 });
 
@@ -85,9 +82,18 @@ async function main() {
                 div.appendChild(pPC);
                 div.appendChild(pSalida);
                 div.appendChild(pRegreso);
+                div.appendChild(pEstado);
                 div.appendChild(btnConcluir);
 
                 pendientesContainer.appendChild(div);
+            } else if (s.estado === "concluido") {
+                div.appendChild(pUsuario);
+                div.appendChild(pSede);
+                div.appendChild(pPC);
+                div.appendChild(pSalida);
+                div.appendChild(pRegreso);
+                div.appendChild(pEstado);
+                historialContainer.appendChild(div);
             }
         }
     }
@@ -95,6 +101,15 @@ async function main() {
     for (let form of formularios) {
         const inputUsuario = form.getElementsByTagName("input")[0];
         inputUsuario.value = usuarioLogueado.username;
+
+        const fechaSalidaInput = form.getElementsByTagName("input")[1];
+        const fechaRegresoInput = form.getElementsByTagName("input")[2];
+
+        const hoy = new Date().toISOString().slice(0, 10);
+        fechaSalidaInput.value = hoy;
+        fechaSalidaInput.readOnly = true;
+        fechaRegresoInput.value = "";
+        fechaRegresoInput.readOnly = true;
 
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -125,9 +140,15 @@ async function main() {
             await crearSolicitud(nuevaSolicitud);
             form.reset();
             inputUsuario.value = usuarioLogueado.username;
+            fechaSalidaInput.value = hoy;
+            fechaSalidaInput.readOnly = true;
+            fechaRegresoInput.value = "";
+            fechaRegresoInput.readOnly = true;
+
             cargarSolicitudes();
         });
     }
+
 
     cargarSolicitudes();
 }

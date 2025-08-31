@@ -4,38 +4,53 @@
       "id": "1",
       "username": "Pedro",
       "password": "1",
-      "userT": "student"
+      "userT": "admin"
     },
     {
       "id": "2",
       "username": "Juan",
       "password": "1",
+      "userT": "admin"
+    },
+    {
+      "id": "3abf",
+      "username": "pedrolo",
+      "password": "1",
+      "userT": "admin"
+    },
+    {
+      "id": "8185",
+      "username": "pepe",
+      "password": "1",
       "userT": "student"
     },
     {
-      "id": "24e1",
-      "username": "Mike",
+      "id": "077b",
+      "username": "Emmanuel",
       "password": "2",
       "userT": "student"
     }
   ],
   "Solicitud": [
     {
-      "id": "4ccf",
-      "usuarioId": 1,
-      "sede": "pacifico",
-      "fechaSalida": "2000-02-12",
-      "fechaRegreso": "2222-12-12",
-      "codigo": "321312",
-      "estado": "pendiente"
+      "id": "b884"
     },
     {
-      "id": "620f",
-      "usuarioId": "1",
-      "sede": "capri",
-      "fechaSalida": "2000-02-12",
-      "fechaRegreso": "2001-12-12",
-      "codigo": "3213213",
+      "id": "f592",
+      "usuarioId": "077b",
+      "sede": "pacifico",
+      "fechaSalida": "2025-08-31",
+      "fechaRegreso": "222222-02-22",
+      "codigo": "22",
+      "estado": "concluido"
+    },
+    {
+      "id": "3d7a",
+      "usuarioId": "077b",
+      "sede": "pacifico",
+      "fechaSalida": "2025-08-31",
+      "fechaRegreso": "",
+      "codigo": "3333",
       "estado": "concluido"
     }
   ]

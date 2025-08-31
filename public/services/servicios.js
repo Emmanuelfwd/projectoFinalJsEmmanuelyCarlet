@@ -3,9 +3,10 @@ export async function obtenerUsuario(userName, password,userT) {
     const respuesta = await fetch("http://localhost:3001/usuarios");
     const usuarios = await respuesta.json();
 
-    return usuarios.find(usuario => 
-      usuario.username === userName && usuario.password === password && usuario.userT === userT
+    return usuarios.find(usuario =>
+      usuario.username === userName && usuario.password === password
     );
+
     
   } catch (error) {
     console.error("Error al obtener usuario:", error);
@@ -53,6 +54,40 @@ export async function obtenerUsuarioPorId(id) {
         return await resp.json();
     } catch (error) {
         console.error("Error al obtener usuario por ID:", error);
+    }
+}
+
+export async function obtenerUsuarios() {
+    try {
+        const respuesta = await fetch("http://localhost:3001/usuarios");
+        return await respuesta.json();
+    } catch (error) {
+        console.error("Error al obtener usuarios:", error);
+        return [];
+    }
+}
+
+export async function actualizarUsuario(id, cambios) {
+    try {
+        const resp = await fetch(`http://localhost:3001/usuarios/${id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(cambios)
+        });
+        return await resp.json();
+    } catch (error) {
+        console.error("Error al actualizar usuario:", error);
+    }
+}
+
+export async function eliminarUsuario(id) {
+    try {
+        const resp = await fetch(`http://localhost:3001/usuarios/${id}`, {
+            method: "DELETE"
+        });
+        return await resp.json();
+    } catch (error) {
+        console.error("Error al eliminar usuario:", error);
     }
 }
 

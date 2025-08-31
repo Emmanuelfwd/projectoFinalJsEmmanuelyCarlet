@@ -26,6 +26,8 @@ async function obtenerUsuarioPorNombreYTipo(username, tipoUsuario) {
     try {
         const respuesta = await fetch("http://localhost:3001/usuarios");
         const usuarios = await respuesta.json();
+
+        // Comparación segura sin importar el tipo del ID
         return usuarios.find(usuario =>
             usuario.username === username && usuario.userT === tipoUsuario
         );

@@ -1,9 +1,8 @@
 import { obtenerUsuario } from "../services/servicios.js";
 
-let usuario = document.getElementById("usuario_id");
-let clave = document.getElementById("clave");
-let btnLogin = document.getElementById("btnIngreso");
-let mensajeError = document.getElementById("mensaje_error");
+const usuario = document.getElementById("usuario_id");
+const clave = document.getElementById("clave");
+const mensajeError = document.getElementById("mensaje_error");
 
 document.getElementById("form_login").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -11,20 +10,25 @@ document.getElementById("form_login").addEventListener("submit", async (e) => {
     const user = usuario.value.trim();
     const pass = clave.value.trim();
 
-    /* Obtenemos al usuario con tipo "normal" */
-    const usuarioEncontrado = await obtenerUsuario(user, pass, "student");
+    const usuarioEncontrado = await obtenerUsuario(user, pass);
 
     if (usuarioEncontrado) {
         sessionStorage.setItem("usuario_id", usuarioEncontrado.id);
+        sessionStorage.setItem("usuario_username", usuarioEncontrado.username);
 
-        /* Validamos que el tipo sea el correcto */
         if (usuarioEncontrado.userT === "student") {
             mensajeError.style.display = "none";
             window.location.href = "../pages/main.html";
+        } else if (usuarioEncontrado.userT === "admin") {
+            mensajeError.style.display = "none";
+            window.location.href = "../pages/adminpage.html";
         } else {
-            
+            // Si hay otros tipos, se pueden manejar aquí
+            mensajeError.style.display = "block";
+            mensajeError.textContent = "Tipo de usuario no reconocido.";
         }
     } else {
         mensajeError.style.display = "block";
+        mensajeError.textContent = "Usuario o contraseña incorrectos.";
     }
 });

@@ -1,53 +1,94 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Solicitud de Permiso</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    </head>
-    <body class="bg-light">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solicitud de Permiso</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+</head>
+<body class="bg-light">
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div
+      class="card shadow-lg rounded-4 w-100"
+      style="max-width: 450px"
+    >
+      <div class="card-header bg-primary text-white text-center py-3">
+        <h4 class="mb-0">Formulario de Registro</h4>
+      </div>
+      <div class="card-body px-4 py-4">
+        <form id="form_registro">
+          <div class="mb-3">
+            <label for="nombre_usuario" class="form-label"
+              >Nombre de usuario</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="nombre_usuario"
+              placeholder="Ej: juan.perez23"
+              required
+            />
+          </div>
 
-        <div class="container d-flex justify-content-center align-items-center min-vh-100">
-            <div class="card shadow-lg rounded-4 w-100" style="max-width: 450px;">
-                <div class="card-header bg-primary text-white text-center py-3">
-                    <h4 class="mb-0">Formulario de Registro</h4>
-                </div>
-                <div class="card-body px-4 py-4">
-                    <form id="form_registro">
-                        <div class="mb-3">
-                            <label for="nombre_usuario" class="form-label">Nombre de usuario</label>
-                            <input type="text" class="form-control" id="nombre_usuario" placeholder="Ej: juan.perez23" required>
-                        </div>
+          <div class="mb-3">
+            <label for="contrasenia" class="form-label">Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              id="contrasenia"
+              placeholder="Ingresa tu contraseña"
+              required
+            />
+          </div>
 
-                        <div class="mb-3">
-                            <label for="contrasenia" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasenia" placeholder="Ingresa tu contraseña" required>
-                        </div>
+          <div class="mb-3">
+            <label for="confirmar_contrasenia" class="form-label"
+              >Confirmar contraseña</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="confirmar_contrasenia"
+              placeholder="Repite tu contraseña"
+              required
+            />
+          </div>
 
-                        <div class="mb-3">
-                            <label for="confirmar_contrasenia" class="form-label">Confirmar contraseña</label>
-                            <input type="password" class="form-control" id="confirmar_contrasenia" placeholder="Repite tu contraseña" required>
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="acepta_terminos" required>
-                                <label class="form-check-label" for="acepta_terminos">
-                                    Acepto los términos y condiciones
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-success w-100">Registrarse</button>
-                        </div>
-                    </form>
-                </div>
+          <div class="mb-4">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="acepta_terminos"
+                required
+              />
+              <label class="form-check-label" for="acepta_terminos"
+                >Acepto los términos y condiciones</label
+              >
             </div>
-        </div>
+          </div>
 
-        <script type="module" src="../javascript/registroE.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    </body>
-    </html>
+          <div class="d-flex gap-2">
+            <button
+              type="submit"
+              class="btn btn-success flex-fill"
+            >
+              Registrarse
+            </button>
+            <a href="../pages/login.html"class="btn btn-success flex-fill text-center">Volver</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script type="module"src="../javascript/registroE.js"></script>
+</body>
+</html>
