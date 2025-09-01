@@ -64,12 +64,12 @@ async function main() {
             const pRegreso = document.createElement("p");
             pRegreso.innerHTML = `<b>Fecha de regreso:</b> ${s.fechaRegreso}`;
             const pEstado = document.createElement("p");
-            pEstado.innerHTML = `<b>Estado:</b> ${s.estado}`;
+            pEstado.innerHTML = `<b>Estado de entrega:</b> ${s.estado}`;
 
             if (s.estado === "pendiente") {
                 const btnConcluir = document.createElement("button");
                 btnConcluir.className = "btn btn-sm btn-success";
-                btnConcluir.textContent = "Concluir";
+                btnConcluir.textContent = "Entregar";
 
                 btnConcluir.addEventListener("click", async () => {
                     const fechaActual = new Date().toISOString().slice(0, 10);

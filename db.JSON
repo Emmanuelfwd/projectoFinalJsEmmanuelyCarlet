@@ -3,7 +3,7 @@
     {
       "id": "1",
       "username": "Pedro",
-      "password": "1",
+      "password": "2",
       "userT": "admin"
     },
     {
@@ -13,9 +13,27 @@
       "userT": "admin"
     },
     {
-      "id": "077b",
+      "id": "51dc",
+      "username": "Jojo",
+      "password": "1",
+      "userT": "student"
+    },
+    {
+      "id": "8a70",
+      "username": "Carlet",
+      "password": "1234",
+      "userT": "admin"
+    },
+    {
+      "id": "c7aa",
       "username": "Emmanuel",
-      "password": "2",
+      "password": "1",
+      "userT": "admin"
+    },
+    {
+      "id": "0d84",
+      "username": "María",
+      "password": "1",
       "userT": "student"
     }
   ],
@@ -25,7 +43,7 @@
     },
     {
       "id": "f592",
-      "usuarioId": "077b",
+      "usuarioId": null,
       "sede": "pacifico",
       "fechaSalida": "2025-08-31",
       "fechaRegreso": "222222-02-22",
@@ -34,7 +52,7 @@
     },
     {
       "id": "3d7a",
-      "usuarioId": "077b",
+      "usuarioId": null,
       "sede": "pacifico",
       "fechaSalida": "2025-08-31",
       "fechaRegreso": "",
@@ -43,7 +61,7 @@
     },
     {
       "id": "d231",
-      "usuarioId": "077b",
+      "usuarioId": null,
       "sede": "pacifico",
       "fechaSalida": "2025-08-31",
       "fechaRegreso": "2025-08-31",
@@ -52,11 +70,56 @@
     },
     {
       "id": "b6e7",
-      "usuarioId": "077b",
+      "usuarioId": null,
       "sede": "pacifico",
       "fechaSalida": "2025-08-31",
-      "fechaRegreso": "",
+      "fechaRegreso": "2025-08-31",
       "codigo": "323123",
+      "estado": "concluido"
+    },
+    {
+      "id": "776d",
+      "usuarioId": "51dc",
+      "sede": "pacifico",
+      "fechaSalida": "2025-08-31",
+      "fechaRegreso": "2025-08-31",
+      "codigo": "321321",
+      "estado": "concluido"
+    },
+    {
+      "id": "225e",
+      "usuarioId": "8a70",
+      "sede": "pacifico",
+      "fechaSalida": "2025-08-31",
+      "fechaRegreso": "2025-08-31",
+      "codigo": "PC-2564",
+      "estado": "concluido"
+    },
+    {
+      "id": "edbb",
+      "usuarioId": "0d84",
+      "sede": "capri",
+      "fechaSalida": "2025-08-31",
+      "fechaRegreso": "2025-08-31",
+      "codigo": "PC-2565",
+      "estado": "concluido"
+    },
+    {
+      "id": "28eb",
+      "usuarioId": "0d84",
+      "sede": "capri",
+      "fechaSalida": "2025-08-31",
+      "fechaRegreso": "",
+      "codigo": "PC-2565",
+      "estado": "pendiente"
+    },
+    {
+      "id": "3db2",
+      "usuarioId": "51dc",
+      "sede": "pacifico",
+      "fechaSalida": "2025-09-01",
+      "fechaRegreso": "",
+      "codigo": "44",
       "estado": "pendiente"
     }
   ]

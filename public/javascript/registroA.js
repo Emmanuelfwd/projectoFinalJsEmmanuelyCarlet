@@ -1,6 +1,5 @@
 import {
     crearNuevoUsuario,
-    verificarUsuarioExistente,
     obtenerUsuarioPorNombreYTipo
 } from "../services/registrosUsuarios.js"
 
