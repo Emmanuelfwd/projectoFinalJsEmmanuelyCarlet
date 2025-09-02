@@ -2,45 +2,38 @@ import { obtenerSolicitudes, obtenerUsuarioPorId } from '../services/servicios.j
 
 /* Función principal que inicia todo */
 async function init() {
-    /* Obtenemos el contenedor principal donde pondremos las secciones */
     const container = document.getElementById("sedes-container");
-
-    /* Traemos todas las solicitudes desde el JSON/servicio */
     const solicitudes = await obtenerSolicitudes();
 
-    /* Si no hay solicitudes, mostramos mensaje y salimos */
     if (!solicitudes || solicitudes.length === 0) {
         container.innerHTML = "<p>No hay solicitudes disponibles</p>";
         return;
     }
 
-    /* Obtenemos todas las sedes únicas */
+    // Obtener sedes únicas, ignorando solicitudes sin sede
     const sedes = [];
     for (let i = 0; i < solicitudes.length; i++) {
         const sedeNorm = normalizeSede(solicitudes[i].sede);
-        if (!sedes.includes(sedeNorm)) {
+        if (sedeNorm && sedeNorm !== "sin-sede" && !sedes.includes(sedeNorm)) {
             sedes.push(sedeNorm);
         }
     }
 
-    /* Por cada sede, creamos una sección con listas Pendientes y Concluidas */
+    // Por cada sede, crear sección
     for (let i = 0; i < sedes.length; i++) {
         const sede = sedes[i];
 
-        /* Crear sección HTML */
         const section = document.createElement("section");
         section.className = "sede-section";
 
-        /* Título de la sede */
         const h2 = document.createElement("h2");
         h2.innerText = capitalize(sede);
         section.appendChild(h2);
 
-        /* Crear contenedor de grid para Pendientes y Concluidas */
         const grid = document.createElement("div");
         grid.className = "sede-grid";
 
-        /* Columna de Pendientes */
+        // Pendientes
         const divPend = document.createElement("div");
         const hPend = document.createElement("h3");
         hPend.innerText = "Entregas Pendientes";
@@ -50,7 +43,7 @@ async function init() {
         divPend.appendChild(hPend);
         divPend.appendChild(ulPend);
 
-        /* Columna de Concluidas */
+        // Concluidas
         const divComp = document.createElement("div");
         const hComp = document.createElement("h3");
         hComp.innerText = "Entregas Concluidas";
@@ -60,19 +53,16 @@ async function init() {
         divComp.appendChild(hComp);
         divComp.appendChild(ulComp);
 
-        /* Agregamos columnas al grid y el grid a la sección */
         grid.appendChild(divPend);
         grid.appendChild(divComp);
         section.appendChild(grid);
-
-        /* Agregamos la sección al contenedor principal */
         container.appendChild(section);
 
-        /* Filtrar solicitudes por sede y estado */
+        // Filtrar solicitudes por sede
         const pendientes = solicitudes.filter(s => normalizeSede(s.sede) === sede && !isConcluida(s.estado));
         const concluidas = solicitudes.filter(s => normalizeSede(s.sede) === sede && isConcluida(s.estado));
 
-        /* Renderizamos cada lista */
+        // Renderizar listas
         await renderList("pend-" + sede, pendientes);
         await renderList("comp-" + sede, concluidas);
     }
@@ -81,9 +71,8 @@ async function init() {
 /* Función que renderiza las solicitudes dentro de un UL */
 async function renderList(ulId, items) {
     const ul = document.getElementById(ulId);
-    ul.innerHTML = ""; /* Limpiamos UL antes de agregar elementos */
+    ul.innerHTML = "";
 
-    /* Si no hay elementos, mostramos mensaje */
     if (items.length === 0) {
         const li = document.createElement("li");
         li.className = "empty";
@@ -92,15 +81,11 @@ async function renderList(ulId, items) {
         return;
     }
 
-    /* Por cada solicitud, creamos un LI con sus datos */
     for (let i = 0; i < items.length; i++) {
         const s = items[i];
-
-        /* Obtener nombre de usuario desde el servicio */
         const usuario = await obtenerUsuarioPorId(s.usuarioId);
         const nombreUsuario = (usuario && usuario.username) ? usuario.username : "Usuario desconocido";
 
-        /* Crear LI y contenido HTML */
         const li = document.createElement("li");
         li.className = isConcluida(s.estado) ? "solicitud-concluida" : "solicitud-pendiente";
         li.innerHTML =
@@ -112,15 +97,13 @@ async function renderList(ulId, items) {
             "<p><strong>Código:</strong> " + (s.codigo || "No especificado") + "</p>" +
             "<p><strong>Estado:</strong> " + s.estado + "</p>" +
             "</div>";
-
-        /* Agregamos el LI a la UL */
         ul.appendChild(li);
     }
 }
 
 /* Función para normalizar el nombre de la sede */
 function normalizeSede(s) {
-    if (!s) return "sin-sede";
+    if (!s) return null; /* Si no hay sede, devolvemos null para ignorar */
     const v = String(s).toLowerCase();
     if (v.includes("pacific") || v.includes("puntare")) return "puntarenas";
     if (v.includes("capri")) return "capri";
