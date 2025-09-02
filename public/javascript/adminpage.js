@@ -107,7 +107,6 @@ function normalizeSede(s) {
     const v = String(s).toLowerCase();
     if (v.includes("pacific") || v.includes("puntare")) return "puntarenas";
     if (v.includes("capri")) return "capri";
-    return v.replace(/\s+/g, "-");
 }
 
 /* Función que determina si una solicitud está concluida */
@@ -125,3 +124,12 @@ function capitalize(str) {
 
 /* Ejecutar la inicialización */
 init();
+
+const cerrarSesion = document.getElementById("btnSession");
+
+cerrarSesion.addEventListener('click', function() {
+    /* borrar session storage */
+    sessionStorage.clear( );
+    location.reload();
+    
+})

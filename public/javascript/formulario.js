@@ -155,4 +155,10 @@ async function main() {
     cargarSolicitudes();
 }
 
+const btnVolver = document.getElementById("btnVolver");
+btnVolver.addEventListener("click", () => {
+    sessionStorage.clear();
+    location.reload();
+});
+
 main();
