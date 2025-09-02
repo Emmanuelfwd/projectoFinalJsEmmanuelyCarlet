@@ -42,42 +42,6 @@
       "id": "b884"
     },
     {
-      "id": "f592",
-      "usuarioId": null,
-      "sede": "pacifico",
-      "fechaSalida": "2025-08-31",
-      "fechaRegreso": "222222-02-22",
-      "codigo": "22",
-      "estado": "concluido"
-    },
-    {
-      "id": "3d7a",
-      "usuarioId": null,
-      "sede": "pacifico",
-      "fechaSalida": "2025-08-31",
-      "fechaRegreso": "",
-      "codigo": "3333",
-      "estado": "concluido"
-    },
-    {
-      "id": "d231",
-      "usuarioId": null,
-      "sede": "pacifico",
-      "fechaSalida": "2025-08-31",
-      "fechaRegreso": "2025-08-31",
-      "codigo": "41123421",
-      "estado": "concluido"
-    },
-    {
-      "id": "b6e7",
-      "usuarioId": null,
-      "sede": "pacifico",
-      "fechaSalida": "2025-08-31",
-      "fechaRegreso": "2025-08-31",
-      "codigo": "323123",
-      "estado": "concluido"
-    },
-    {
       "id": "776d",
       "usuarioId": "51dc",
       "sede": "pacifico",

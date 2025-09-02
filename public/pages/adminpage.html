@@ -15,27 +15,18 @@
                     <li><a href="../pages/registroAdmin.html">Registrar Admins</a></li>
                     <li><a href="../pages/adminPanel.html">Panel de Control</a></li>
                     <li><a href="../pages/login.html"><button>volver</button></a></li>
-                    
                 </ul>
             </nav>
         </aside>
 
         <main class="main-content">
-            <section>
-                <h2>Entregas Pendientes</h2>
-                <ul id="lista-pendientes" class="solicitudes-list">
-                    <!-- Las solicitudes pendientes se insertarán aquí vía JavaScript -->
-                </ul>
-            </section>
-
-            <section>
-                <h2>Entregas Completas</h2>
-                <ul id="lista-concluidas" class="solicitudes-list">
-                    <!-- Las solicitudes concluidas se insertarán aquí vía JavaScript -->
-                </ul>
-            </section>
+            <div id="sedes-container">
+                <!-- Las secciones por sede se crearán aquí -->
+            </div>
         </main>
     </div>
-    <script type="module" src="../javascript/adminpage.js"></script>
+
+    <!-- agregamos defer para que el script espere que el DOM esté cargado -->
+    <script type="module" src="../javascript/adminpage.js" defer></script>
 </body>
 </html>
